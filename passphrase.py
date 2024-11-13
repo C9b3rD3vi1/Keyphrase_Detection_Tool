@@ -37,11 +37,11 @@ def get_keyboard_press_phrase(key):
     
     # Check if the buffer contains the target phrase
     if TARGET_PHRASES in buffer:
-        print(f'{Fore.RED} Phrase {TARGET_PHRASES} detected!!!')
+        print(Fore.RED + 'Phrase {TARGET_PHRASES} detected!!!' + Fore.RESET)
         buffer = ""  # Reset buffer for next detection
 
     else: # No Phrase detected
-        print(f'{Fore.GREEN} No Phrase was detected!!!')
+        print(Fore.GREEN +'No Phrase was detected!!!'+ Fore.RESET)
 
 
     # Keep buffer to a manageable size
