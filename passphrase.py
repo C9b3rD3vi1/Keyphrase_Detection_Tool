@@ -42,3 +42,8 @@ def get_keyboard_press_phrase(key):
 
     else: # No Phrase detected
         print(f'{Fore.GREEN} Phrase was detected!!!')
+
+
+    # Keep buffer to a manageable size
+    if len(buffer) > len(TARGET_PHRASES) * 2:
+        buffer = buffer[-len(TARGET_PHRASES):]
