@@ -20,12 +20,18 @@ def get_keyboard_press_phrase(key):
     
     except AttributeError:
 
-        # Handle special keys like backspace and ESCAPE keys    
-        if key.name ==  " ":
-            buffer = buffer[:-1]
-        elif key.name == "esc":
-            buffer = ""
+        # Handle special keys like backspace and ESCAPE keys  
+        # Add blank space to buffer if space is pressed  
+        if key.space:
+            buffer += " "
 
+            # Remove last character if backspace is pressed
+        elif key.backspace:
+            buffer = buffer[:-1]
+            # Quit and abort the process if ESCAPE is pressed
+        elif key.esc:
+            print("Exiting...")
+            return False
 
 
 
