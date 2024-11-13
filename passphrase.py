@@ -41,7 +41,7 @@ def get_keyboard_press_phrase(key):
         buffer = ""  # Reset buffer for next detection
 
     else: # No Phrase detected
-        print(f'{Fore.GREEN} Phrase was detected!!!')
+        print(f'{Fore.GREEN} No Phrase was detected!!!')
 
 
     # Keep buffer to a manageable size
@@ -53,7 +53,8 @@ def on_release(key):
     # stop scrpt if ESCAPE is pressed
     if key.esc:
         print("Exiting...")
-        return False
+        return
+    
     
 if __name__:
     with Listener(on_press=get_keyboard_press_phrase, on_release=on_release) as listener:
