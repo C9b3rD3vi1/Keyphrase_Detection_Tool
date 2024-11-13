@@ -47,3 +47,10 @@ def get_keyboard_press_phrase(key):
     # Keep buffer to a manageable size
     if len(buffer) > len(TARGET_PHRASES) * 2:
         buffer = buffer[-len(TARGET_PHRASES):]
+
+
+def on_release(key):
+    # stop scrpt if ESCAPE is pressed
+    if key.esc:
+        print("Exiting...")
+        return False
