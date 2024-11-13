@@ -1,4 +1,5 @@
 from pynput.keyboard import Listener
+from colorama import Fore, Style
 
 
 
@@ -32,13 +33,12 @@ def get_keyboard_press_phrase(key):
         elif key.esc:
             print("Exiting...")
             return False
+        
+    
+    # Check if the buffer contains the target phrase
+    if TARGET_PHRASES in buffer:
+        print(f'{Fore.RED} Phrase {TARGET_PHRASES} detected!!!')
+        buffer = ""  # Reset buffer for next detection
 
-
-
-
-
-
-        # Check if buffer contains target phrases
-        if any(phrase in buffer for phrase in TARGET_PHRASES):
-            print(f"Target phrase detected: {buffer}")
-            buffer = ""
+    else: # No Phrase detected
+        print(f'{Fore.GREEN} Phrase was detected!!!')
