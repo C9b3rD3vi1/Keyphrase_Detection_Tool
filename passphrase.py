@@ -54,3 +54,7 @@ def on_release(key):
     if key.esc:
         print("Exiting...")
         return False
+    
+if __name__:
+    with Listener(on_press=get_keyboard_press_phrase, on_release=on_release) as listener:
+        listener.join()
