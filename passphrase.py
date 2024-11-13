@@ -17,6 +17,20 @@ def get_keyboard_press_phrase(key):
 
         # Append key to buffer
         buffer += key_str
+    
+    except AttributeError:
+
+        # Handle special keys like backspace and ESCAPE keys    
+        if key.name ==  " ":
+            buffer = buffer[:-1]
+        elif key.name == "esc":
+            buffer = ""
+
+
+
+
+
+
 
         # Check if buffer contains target phrases
         if any(phrase in buffer for phrase in TARGET_PHRASES):
