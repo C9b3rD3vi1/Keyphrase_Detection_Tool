@@ -1,4 +1,4 @@
-from pynput.keyboard import Listener
+from pynput.keyboard import Listener, Key
 from colorama import Fore, Style
 
 
@@ -51,7 +51,7 @@ def get_keyboard_press_phrase(key):
 
 def on_release(key):
     # stop scrpt if ESCAPE is pressed
-    if key == key.esc:
+    if key == Key.esc:
         print("Exiting...")
         return False
     
