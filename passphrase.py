@@ -51,9 +51,9 @@ def get_keyboard_press_phrase(key):
 
 def on_release(key):
     # stop scrpt if ESCAPE is pressed
-    if key.esc:
+    if key == key.esc:
         print("Exiting...")
-        return
+        return False
     
     
 if __name__:
