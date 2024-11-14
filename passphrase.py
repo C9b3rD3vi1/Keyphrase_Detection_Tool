@@ -5,7 +5,7 @@ import pyfiglet
 
 
 # Target phrases to be detected
-TARGET_PHRASES = "hack passwords"
+TARGET_PHRASES = "passwords"
 
 # buffer to store keystrokes
 buffer = ""
@@ -55,7 +55,7 @@ def get_keyboard_press_phrase(key):
     
     # Check if the buffer contains the target phrase
     if TARGET_PHRASES in buffer:
-        print(Fore.RED + "Phrase '{TARGET_PHRASES}' detected!!!" + Fore.RESET)
+        print(Fore.RED + "Phrase {TARGET_PHRASES} detected!!!" + Fore.RESET)
         buffer = ""  # Reset buffer for next detection
 
     else: # No Phrase detected
