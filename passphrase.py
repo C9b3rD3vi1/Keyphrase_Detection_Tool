@@ -70,7 +70,14 @@ def get_keyboard_press_phrase(key):
     if len(buffer) > len(TARGET_PHRASES) * 2:
         buffer = buffer[-len(TARGET_PHRASES):]
 
+# Create tkinter root window
+root = tk.Tk()
 
+# Create KeystrokeDisplayApp instance
+app = KeystrokeDisplayApp(root)
+
+
+# Function to handle key press events
 def on_release(key):
     # stop scrpt if ESCAPE is pressed
     if key == Key.esc:
@@ -78,11 +85,7 @@ def on_release(key):
         return False
 
 
-# Create tkinter root window
-root = tk.Tk()
 
-# Create KeystrokeDisplayApp instance
-app = KeystrokeDisplayApp(root)
 
     
 # main function   
