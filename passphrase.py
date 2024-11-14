@@ -66,6 +66,7 @@ def on_release(key):
         return False
     
     
+    
 if __name__:
     with Listener(on_press=get_keyboard_press_phrase, on_release=on_release) as listener:
         listener.join()
