@@ -13,6 +13,7 @@ buffer = ""
 
 def logo_banner():
     """Print logo and project details"""
+    
     Author = "C9b3rD3vi1"
     project_name = pyfiglet.figlet_format("Phrase Detection Tool")
     version = "v1.0.0"
