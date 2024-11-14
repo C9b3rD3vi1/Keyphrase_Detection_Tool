@@ -18,7 +18,7 @@ def logo_banner():
     version = "v1.0.0"
     github_link = "https://github.com/C9b3rD3vi1/Keyphrase_Detection_Tool.git"
 
-    print(Style.BRIGHT + '{project_name}' + Style.RESET_ALL)
+    print(project_name)
     print(f"Version: {version}")
     print(f"Author: {Author}")
     print(f"GitHub: {github_link}")
