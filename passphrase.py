@@ -12,11 +12,17 @@ buffer = ""
 
 
 def logo_banner():
+    """Print logo and project details"""
+    Author = "C9b3rD3vi1"
     project_name = "Phrase Detection Tool"
     version = "v1.0.0"
     github_link = "https://github.com/C9b3rD3vi1/Keyphrase_Detection_Tool.git"
-    print(Style.BRIGHT + pyfiglet.figlet_format("KeyLogger") + Style.RESET_ALL)
 
+    print(Style.BRIGHT + pyfiglet.figlet_format({project_name}) + Style.RESET_ALL)
+    print(f"Version: {version}")
+    print(f"Author: {Author}")
+    print(f"GitHub: {github_link}")
+    print("Press Ctrl+C to stop the program.")
 
 
 def get_keyboard_press_phrase(key):
