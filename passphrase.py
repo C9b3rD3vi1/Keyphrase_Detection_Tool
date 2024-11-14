@@ -23,7 +23,7 @@ def logo_banner():
     print("\n")
     print(f"Version: {version}")
     print(f"Author: {Author}")
-    print(f"GitHub: + Fore.BLUE + {github_link} + Fore.RESET")
+    print(f"GitHub: {Fore.BLUE}{github_link}{Style.RESET_ALL}")
     print("\n")
 
 
