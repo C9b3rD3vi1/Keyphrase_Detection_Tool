@@ -1,6 +1,8 @@
 from pynput.keyboard import Listener, Key
 from colorama import Fore, Style
 import pyfiglet
+import tkinter as tk
+from interface import KeystrokeDisplayApp
 
 
 
@@ -22,10 +24,11 @@ def logo_banner():
     print(Fore.CYAN + project_name + Fore.RESET)
     print("\n")
     print(f"Version: {Fore.LIGHTMAGENTA_EX}{version}{Fore.RESET}")
-    
+
     print(f"Author: {Fore.LIGHTMAGENTA_EX}{Author}{Fore.RESET}")
     print(f"GitHub: {Fore.BLUE}{github_link}{Style.RESET_ALL}")
     print("\n")
+
 
 
 def get_keyboard_press_phrase(key):
@@ -74,6 +77,13 @@ def on_release(key):
         print("Exiting...")
         return False
 
+
+# Create tkinter root window
+root = tk.Tk()
+
+# Create KeystrokeDisplayApp instance
+app = KeystrokeDisplayApp(root)
+
     
 # main function   
 if __name__:
@@ -82,3 +92,9 @@ if __name__:
     # Start listening for keyboard presses and detecting target phrases
     with Listener(on_press=get_keyboard_press_phrase, on_release=on_release) as listener:
         listener.join()
+
+
+
+# Run the tkinter main loop
+root.mainloop()
+listener.stop()
