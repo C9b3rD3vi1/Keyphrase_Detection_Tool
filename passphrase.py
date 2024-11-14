@@ -74,5 +74,8 @@ def on_release(key):
     
 # main function   
 if __name__:
+    # Print logo and project details
+    logo_banner()
+    # Start listening for keyboard presses and detecting target phrases
     with Listener(on_press=get_keyboard_press_phrase, on_release=on_release) as listener:
         listener.join()
