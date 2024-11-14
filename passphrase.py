@@ -21,8 +21,8 @@ def logo_banner():
 
     print(Fore.CYAN + project_name + Fore.RESET)
     print("\n")
-    print(f"Version: {version}")
-    print(f"Author: {Author}")
+    print(f"Version: {Fore.LIGHTMAGENTA_EX}{version}")
+    print(f"Author: {Author}{Fore.RESET}")
     print(f"GitHub: {Fore.BLUE}{github_link}{Style.RESET_ALL}")
     print("\n")
 
