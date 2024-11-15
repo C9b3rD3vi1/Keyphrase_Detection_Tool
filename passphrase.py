@@ -42,7 +42,6 @@ def parse_arguments():
 
 
 
-
 def logo_banner():
     """Print logo and project details"""
 
@@ -130,9 +129,13 @@ def on_release(key):
 
     
 # main function   
-if __name__:
+if __name__ == '__main__':
+    # Parse command-line arguments
+    parse_arguments()
+
     # Print logo and project details
     logo_banner()
+    
     # alert
     trigger_alert(TARGET_PHRASES)
 
