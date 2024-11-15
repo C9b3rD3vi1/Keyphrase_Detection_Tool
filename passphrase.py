@@ -2,6 +2,7 @@ from pynput.keyboard import Listener, Key
 from colorama import Fore, Style
 import pyfiglet
 import tkinter as tk
+from tkinter import messagebox
 from interface import KeystrokeDisplayApp
 
 
@@ -81,6 +82,13 @@ def get_keyboard_press_phrase(key):
 
 # Create KeystrokeDisplayApp instance
 #app = KeystrokeDisplayApp(root)
+
+
+# Trigger alert when a keyword is found
+def trigger_alert(TARGET_PHRASES):
+    print(f"Phrase '{TARGET_PHRASES}' detected!")
+    # Show a popup alert
+    messagebox.showinfo("Keyword Alert", f"Keyword Detected: {TARGET_PHRASES}")
 
 
 # Function to handle key press events
