@@ -3,6 +3,7 @@ import argparse
 from pynput.keyboard import Listener, Key
 from colorama import Fore, Style
 import pyfiglet
+import datetime
 import tkinter as tk
 from tkinter import messagebox
 from interface import KeystrokeDisplayApp
