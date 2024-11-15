@@ -16,7 +16,7 @@ TARGET_PHRASES = "passwords"
 buffer = ""
 
 log_file = None
-keyword = [] # Populated by argparse
+keyword = [] # Will be populated by argparse
 
 
 # Parse command-line arguments
@@ -38,7 +38,7 @@ def parse_arguments():
     args = parser.parse_args()
     keywords = args.keywords
     log_file = args.log
-    
+
 
 
 
