@@ -70,11 +70,12 @@ def get_keyboard_press_phrase(key):
     if len(buffer) > len(TARGET_PHRASES) * 2:
         buffer = buffer[-len(TARGET_PHRASES):]
 
+
 # Create tkinter root window
-root = tk.Tk()
+#root = tk.Tk()
 
 # Create KeystrokeDisplayApp instance
-app = KeystrokeDisplayApp(root)
+#app = KeystrokeDisplayApp(root)
 
 
 # Function to handle key press events
@@ -97,7 +98,8 @@ if __name__:
         listener.join()
 
 
-
+'''
 # Run the tkinter main loop
 root.mainloop()
 listener.stop()
+'''
