@@ -51,6 +51,11 @@ def get_keyboard_press_phrase(key):
             # Remove last character if backspace is pressed
         elif key.backspace:
             buffer = buffer[:-1]
+
+        # Add newline character to buffer if ENTER is pressed
+        elif key.enter:
+            buffer += "\n"
+        
             # Quit and abort the process if ESCAPE is pressed
         elif key.esc:
             print("Exiting...")
