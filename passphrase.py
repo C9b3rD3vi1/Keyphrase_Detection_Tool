@@ -99,8 +99,6 @@ def on_release(key):
         return False
 
 
-
-
     
 # main function   
 if __name__:
