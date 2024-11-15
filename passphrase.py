@@ -23,7 +23,7 @@ keyword = [] # Will be populated by argparse
 def parse_arguments():
     global keywords, log_file
 
-    parser = argparse.ArgumentParser(description="Keyword Detection Tool")
+    parser = argparse.ArgumentParser(description="Passphrase Detection Tool")
     parser.add_argument(
         "-k", "--keywords",
         nargs="+",
