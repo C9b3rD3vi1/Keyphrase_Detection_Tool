@@ -24,6 +24,10 @@ clone this repository
 
     python passphrase.py -k confidential secret "data breach"
 
+### Running with provided filename and path for keyword
+
+     python passphrase.py -f filename.txt 
+     
 ### Running with logging enabled
 
     python passphrase.py -l keyword_log.txt

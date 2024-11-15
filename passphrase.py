@@ -31,14 +31,35 @@ def parse_arguments():
         default=["password", "admin", "alert"],
         help="List of keywords to monitor (space-separated)."
     )
+
+    parser.add_argument(
+        "-f", "--file",
+        type=str
+        help="Path to a file containing keywords to monitor (one per line)."
+    )
+
     parser.add_argument(
         "-l", "--log",
         type=str,
         help="Path to the log file for recording detected keywords."
     )
+
     args = parser.parse_args()
     keywords = args.keywords
     log_file = args.log
+
+    # Load keywords from arguments
+    keywords.extend(args.keywords)
+
+
+    # Load keywords from file if specified
+    if args.file:
+        try:
+            with open(args.file, "r") as file:
+                keywords.extend([line.strip() for line in file if line.strip()])
+        except FileNotFoundError:
+            print(f"Error: The file '{args.file}' was not found.")
+            exit(1)
 
 
 
@@ -58,6 +79,7 @@ def logo_banner():
     print(f"Author: {Fore.LIGHTMAGENTA_EX}{Author}{Fore.RESET}")
     print(f"GitHub: {Fore.BLUE}{github_link}{Style.RESET_ALL}")
     print("\n")
+
 
 
 
@@ -86,10 +108,8 @@ def get_keyboard_press_phrase(key):
         elif key.enter:
             buffer += "\n"
         
-            # Quit and abort the process if ESCAPE is pressed
-        elif key.esc:
-            print("Exiting...")
-            return False
+        else:
+            buffer += f"[{key}]"
         
     
     # Check if the buffer contains the target phrase
