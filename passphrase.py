@@ -88,7 +88,7 @@ def get_keyboard_press_phrase(key):
 def trigger_alert(TARGET_PHRASES):
     print(f"Phrase '{TARGET_PHRASES}' detected!")
     # Show a popup alert
-    messagebox.showinfo("Keyword Alert", f"Keyword Detected: {TARGET_PHRASES}")
+    messagebox.showinfo("Keyword Alert", f"Passphrase Detected: {TARGET_PHRASES}")
 
 
 # Function to handle key press events
@@ -108,7 +108,7 @@ if __name__:
     logo_banner()
     # alert
     trigger_alert(TARGET_PHRASES)
-    
+
     # Start listening for keyboard presses and detecting target phrases
     with Listener(on_press=get_keyboard_press_phrase, on_release=on_release) as listener:
         listener.join()
