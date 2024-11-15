@@ -133,9 +133,16 @@ if __name__ == '__main__':
     # Parse command-line arguments
     parse_arguments()
 
+    # log the detection if logging is enabled
+    if log_file:
+        # Open log file
+        with open(log_file, "a") as file:
+            file.write(f"Started logging at {datetime.datetime.now()}\n")
+            file.write(f" Detected: {phrase} \n")
+
     # Print logo and project details
     logo_banner()
-    
+
     # alert
     trigger_alert(TARGET_PHRASES)
 
