@@ -34,7 +34,7 @@ def parse_arguments():
 
     parser.add_argument(
         "-f", "--file",
-        type=str
+        type=str,
         help="Path to a file containing keywords to monitor (one per line)."
     )
 
