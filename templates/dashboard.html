@@ -1,1 +1,62 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Log Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        .log-container {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .log-message {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        .log-message.new {
+            background-color: #d4edda; /* Green background for new logs */
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Log Dashboard</h1>
+
+    <div class="log-container" id="logContainer">
+        {% for log in logs %}
+        <div class="log-message">{{ log }}</div>
+        {% endfor %}
+    </div>
+
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        // Listen for new log messages
+        socket.on('new_log', function(data) {
+            var logContainer = document.getElementById("logContainer");
+            var newLog = document.createElement("div");
+            newLog.classList.add("log-message", "new");
+            newLog.textContent = data.message;
+
+            // Append the new log at the top
+            logContainer.insertBefore(newLog, logContainer.firstChild);
+        });
+    </script>
+</body>
+</html>
