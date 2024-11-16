@@ -1,6 +1,9 @@
 
 from flask import Flask, request, jsonify
 
+# log messages in memory
+log_messages = []
+
 app = Flask(__name__)
 
 # Endpoint to receive alerts from the client
@@ -12,6 +15,9 @@ def receive_alert():
 
     keyword = data['keyword']
     print(f"Received alert for keyword: {keyword}")
+
+    # Log the alert in memory
+    log_messages.append(f"Keyword detected: {keyword} at {time.ctime()}")
 
     # Log the alert (could also save to a file or database)
     with open("server_logs.txt", "a") as log_file:
