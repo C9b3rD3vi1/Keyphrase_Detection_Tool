@@ -159,18 +159,17 @@ def trigger_alert(phrase):
     global last_alert_time
     current_time = time.time()
 
-    # Check if the keyword has been detected within the cooldown period 
-    if keyword not in detected_keywords and (
-        keyword not in last_alert_time or current_time - last_alert_time[keyword] > ALERT_COOLDOWN
+    # Check if the phrase has been detected within the cooldown period 
+    if phrase not in detected_keywords and (
+        phrase not in last_alert_time or current_time - last_alert_time[phrase] > ALERT_COOLDOWN
     ):
-        print(f"ALERT: Phrase '{keyword}' detected!")  # Replace with non-intrusive GUI or notification
-        detected_keywords.add(keyword)
+        print(f"ALERT: Phrase '{phrase}' detected!")  # Replace with non-intrusive GUI or notification
+        detected_keywords.add(phrase)
         # Update last alert time
-        last_alert_time[keyword] = current_time
+        last_alert_time[phrase] = current_time
 
-    print(f"Phrase '{phrase}' detected!")
-    # Show a popup alert
-    messagebox.showinfo("Keyword Alert", f"Passphrase Detected: {phrase}")
+        # Show a popup alert
+        messagebox.showinfo("Keyword Alert", f"Passphrase Detected: {phrase}")
 
 
 
@@ -194,7 +193,7 @@ if __name__ == '__main__':
         # Open log file
         with open(log_file, "a") as file:
             file.write(f"Started logging at {datetime.datetime.now()}\n")
-            file.write(f" Detected: {phrase} \n")
+            file.write(f" Detected: {keyword} \n")
 
 
     # Print logo and project details
