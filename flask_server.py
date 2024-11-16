@@ -46,12 +46,19 @@ def dashboard():
 # Background task to periodically send logs
 def send_logs():
     while True:
-        socketio.sleep(5)  # Update every 5 seconds
+        socketio.sleep(1)  # Update every 1 seconds
+
 
 # Start the background task
-@app._got_first_request
 def start_background_task():
     socketio.start_background_task(send_logs)
 
+
+
+# Start the Flask server and SocketIO server
 if __name__ == '__main__':
+
+    # Start the background task here
+    start_background_task()
+
     app.run(host='0.0.0.0', port=5000)
