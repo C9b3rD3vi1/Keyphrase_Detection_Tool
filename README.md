@@ -35,3 +35,11 @@ clone this repository
 ### Running with logging enabled and custom keyphrase detection
 
     python3 passphrase.py -k sensitive admin login -l keyword_log.txt
+
+## Flask server setup
+
+Run the following commands in a separate terminal
+
+    python3 flask_server.py
+
+![server running](/servers.png)
