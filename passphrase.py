@@ -163,7 +163,7 @@ def trigger_alert(phrase):
     if phrase not in detected_keywords and (
         phrase not in last_alert_time or current_time - last_alert_time[phrase] > ALERT_COOLDOWN
     ):
-        print(f"ALERT: Phrase '{phrase}' detected!")  # Replace with non-intrusive GUI or notification
+        print(f"ALERT:{Fore.RED} Phrase '{phrase}' detected!")  # Replace with non-intrusive GUI or notification
         detected_keywords.add(phrase)
         # Update last alert time
         last_alert_time[phrase] = current_time
