@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Endpoint to receive alerts
+# Endpoint to receive alerts from the client
 @app.route('/alert', methods=['POST'])
 def receive_alert():
     data = request.json
