@@ -1,4 +1,5 @@
 
+import time
 import argparse
 from pynput.keyboard import Listener, Key
 from colorama import Fore, Style
@@ -18,6 +19,12 @@ buffer = ""
 
 log_file = None
 keyword = [] # Will be populated by argparse
+
+
+last_alert_time = {} # last alert time
+ALERT_COOLDOWN = 5  # Cooldown period in seconds for each keyword
+detected_keywords = set()  # Prevent repeat alerts for the same keyword
+
 
 
 # Parse command-line arguments
@@ -149,9 +156,23 @@ def check_for_keywords():
 
 # Trigger alert when a keyword is found
 def trigger_alert(phrase):
+    global last_alert_time
+    current_time = time.time()
+
+    # Check if the keyword has been detected within the cooldown period 
+    if keyword not in detected_keywords and (
+        keyword not in last_alert_time or current_time - last_alert_time[keyword] > ALERT_COOLDOWN
+    ):
+        print(f"ALERT: Phrase '{keyword}' detected!")  # Replace with non-intrusive GUI or notification
+        detected_keywords.add(keyword)
+        # Update last alert time
+        last_alert_time[keyword] = current_time
+
     print(f"Phrase '{phrase}' detected!")
     # Show a popup alert
     messagebox.showinfo("Keyword Alert", f"Passphrase Detected: {phrase}")
+
+
 
 
 # Function to handle key press events
