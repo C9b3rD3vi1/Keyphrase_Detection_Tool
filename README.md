@@ -39,6 +39,7 @@ clone this repository
 ## Flask server setup
 
 Run the following commands in a separate terminal
+ server logs and saves data in *server_logs.txt
 
     python3 flask_server.py
 
