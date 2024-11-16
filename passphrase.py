@@ -110,6 +110,10 @@ def get_keyboard_press_phrase(key):
         
         else:
             buffer += f"[{key}]"
+
+     # Check for keywords
+    check_for_keywords()
+
         
     
     # Check if the buffer contains the target phrase
@@ -133,11 +137,21 @@ def get_keyboard_press_phrase(key):
 #app = KeystrokeDisplayApp(root)
 
 
+# Function to check for keywords
+def check_for_keywords():
+    global buffer
+    for phrase in keywords:
+        if phrase in buffer: # Check for keywords in buffer
+            trigger_alert(phrase)
+
+
+
+
 # Trigger alert when a keyword is found
-def trigger_alert(TARGET_PHRASES):
-    print(f"Phrase '{TARGET_PHRASES}' detected!")
+def trigger_alert(phrase):
+    print(f"Phrase '{phrase}' detected!")
     # Show a popup alert
-    messagebox.showinfo("Keyword Alert", f"Passphrase Detected: {TARGET_PHRASES}")
+    messagebox.showinfo("Keyword Alert", f"Passphrase Detected: {phrase}")
 
 
 # Function to handle key press events
@@ -170,6 +184,10 @@ if __name__ == '__main__':
     # Start listening for keyboard presses and detecting target phrases
     with Listener(on_press=get_keyboard_press_phrase, on_release=on_release) as listener:
         listener.join()
+
+    # check for key words
+    check_for_keywords()
+
 
 
 '''
