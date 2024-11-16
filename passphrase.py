@@ -155,6 +155,7 @@ def check_for_keywords():
 
 def show_alert_in_background(title, message):
     def show():
+        
         messagebox.showinfo(title, message)  # Display the messagebox in a separate thread
     threading.Thread(target=show).start()  # Start the thread
 
