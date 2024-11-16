@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,16 +45,25 @@
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
     <script>
         var socket = io.connect('http://' + document.domain + ':' + location.port);
+        const logContainer = document.getElementById("logContainer");
+        const logLimit = 100; // Limit the number of logs displayed
 
         // Listen for new log messages
         socket.on('new_log', function(data) {
-            var logContainer = document.getElementById("logContainer");
             var newLog = document.createElement("div");
             newLog.classList.add("log-message", "new");
             newLog.textContent = data.message;
 
             // Append the new log at the top
             logContainer.insertBefore(newLog, logContainer.firstChild);
+
+            // Check if the number of logs exceeds the limit
+            if (logContainer.children.length > logLimit) {
+                logContainer.removeChild(logContainer.lastChild); // Remove the last log
+            }
+
+            // Auto-scroll to the bottom of the log container
+            logContainer.scrollTop = logContainer.scrollHeight;
         });
     </script>
 </body>

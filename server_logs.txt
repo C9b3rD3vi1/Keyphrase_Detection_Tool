@@ -22,3 +22,7 @@ Keyword detected: hack
 Keyword detected: exp
 Keyword detected: i
 Keyword detected: exploit
+Keyword detected: er
+Keyword detected: err
+Keyword detected: error
+Keyword detected: ors
