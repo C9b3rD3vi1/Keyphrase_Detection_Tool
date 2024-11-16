@@ -18,20 +18,20 @@ clone this repository
 
 ### Running with default keyphrase detection
 
-    python passphrase.py
+    python3 passphrase.py
 
 ### Running with custom keyphrase detection
 
-    python passphrase.py -k confidential secret "data breach"
+    python3 passphrase.py -k confidential secret "data breach"
 
 ### Running with provided filename and path for keyword
 
-     python passphrase.py -f filename.txt 
+     python3 passphrase.py -f filename.txt 
      
 ### Running with logging enabled
 
-    python passphrase.py -l keyword_log.txt
+    python3 passphrase.py -l keyword_log.txt
 
 ### Running with logging enabled and custom keyphrase detection
 
-    python passphrase.py -k sensitive admin login -l keyword_log.txt
+    python3 passphrase.py -k sensitive admin login -l keyword_log.txt
