@@ -175,6 +175,7 @@ if __name__ == '__main__':
             file.write(f"Started logging at {datetime.datetime.now()}\n")
             file.write(f" Detected: {phrase} \n")
 
+
     # Print logo and project details
     logo_banner()
 
