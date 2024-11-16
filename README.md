@@ -45,3 +45,8 @@ Run the following commands in a separate terminal
     python3 flask_server.py
 
 ![server running](/servers.png)
+
+### Web dashboard
+
+Realtime dashboard
+![Dashboard](/web_dashboard.png)
