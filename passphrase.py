@@ -1,5 +1,6 @@
 
 import time
+import threading
 import argparse
 from pynput.keyboard import Listener, Key
 from colorama import Fore, Style
@@ -8,6 +9,7 @@ import datetime
 import tkinter as tk
 from tkinter import messagebox
 from interface import KeystrokeDisplayApp
+
 
 
 
@@ -151,7 +153,10 @@ def check_for_keywords():
         if phrase in buffer: # Check for keywords in buffer
             trigger_alert(phrase)
 
-
+def show_alert_in_background(title, message):
+    def show():
+        messagebox.showinfo(title, message)  # Display the messagebox in a separate thread
+    threading.Thread(target=show).start()  # Start the thread
 
 
 # Trigger alert when a keyword is found
@@ -163,14 +168,13 @@ def trigger_alert(phrase):
     if phrase not in detected_keywords and (
         phrase not in last_alert_time or current_time - last_alert_time[phrase] > ALERT_COOLDOWN
     ):
-        print(f"ALERT:{Fore.RED} Phrase '{phrase}' detected!")  # Replace with non-intrusive GUI or notification
+        print(f"ALERT:{Fore.RED} Phrase '{phrase}' detected! {Fore.RESET}")  # Replace with non-intrusive GUI or notification
         detected_keywords.add(phrase)
         # Update last alert time
         last_alert_time[phrase] = current_time
 
-        # Show a popup alert
-        messagebox.showinfo("Keyword Alert", f"Passphrase Detected: {phrase}")
-
+        # Show a popup alert to the user
+        show_alert_in_background("Keyword Alert", f"Passphrase Detected: {phrase}")
 
 
 
