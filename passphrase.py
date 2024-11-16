@@ -10,7 +10,7 @@ import tkinter as tk
 from tkinter import messagebox
 from interface import KeystrokeDisplayApp
 
-
+from send_alert import send_alert_to_server
 
 
 # Target phrases to be detected
@@ -173,6 +173,10 @@ def trigger_alert(phrase):
         detected_keywords.add(phrase)
         # Update last alert time
         last_alert_time[phrase] = current_time
+
+        # send alert to server
+        send_alert_to_server(phrase)
+
 
         # Show a popup alert to the user
         show_alert_in_background("Keyword Alert", f"Passphrase Detected: {phrase}")
